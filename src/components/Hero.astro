@@ -17,7 +17,7 @@ const stats = [
                 <div class="hero-deal-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                     <picture>
                         <source srcset="/assets/images/hero-deal-mobile.webp" media="(max-width: 950px)">
-                        <img src="/assets/images/hero-deal.webp" class="hero-deal" style="margin: 0 auto;" alt="จบดิล">
+                        <img src="/assets/images/hero-deal.webp" class="hero-deal" style="margin: 0 auto;" alt="จบดิล" fetchpriority="high">
                     </picture>
 
                     <StatsCounter stats={stats} client:load />
@@ -51,7 +51,18 @@ const stats = [
 
                 <PriceForm client:load />
                 
-                <img src="/assets/images/car-red.webp" alt="ภาพรถยนต์" class="red-car">
+                <img
+                    src="/assets/images/car-red-330.webp"
+                    srcset="/assets/images/car-red-330.webp 330w, /assets/images/car-red.webp 436w"
+                    sizes="(max-width: 768px) 100vw, 330px"
+                    alt="ภาพรถยนต์"
+                    class="red-car"
+                    width="330"
+                    height="152"
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
+                />
             </div>
         </div>
     </div>

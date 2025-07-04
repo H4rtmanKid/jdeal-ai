@@ -20,7 +20,7 @@ const faqData = [
   },
   {
     question: "มีบริการเสริมอื่นๆ อะไรบ้าง?",
-    answer: "นอกเหนือจากการประเมินราคาและการขายรถแล้ว เรายังมีบริการครบวงจร ได้แก่ การจัดหาสินเชื่อรถยนต์สำหรับผู้ซื้อ การให้คำปรึกษาเกี่ยวกับเทรนด์ราคาตลาด การวิเคราะห์ข้อมูلเชิงลึกของตลาดรถยนต์มือสอง เพื่อให้ลูกค้าได้รับข้อมูลที่ครบถ้วนและทันสมัยในการตัดสินใจ"
+    answer: "นอกเหนือจากการประเมินราคาและการขายรถแล้ว เรายังมีบริการครบวงจร ได้แก่ การจัดหาสินเชื่อรถยนต์สำหรับผู้ซื้อ การให้คำปรึกษาเกี่ยวกับเทรนด์ราคาตลาด การวิเคราะห์ข้อมูลเชิงลึกของตลาดรถยนต์มือสอง เพื่อให้ลูกค้าได้รับข้อมูลที่ครบถ้วนและทันสมัยในการตัดสินใจ"
   }
 ];
 ---
@@ -32,7 +32,19 @@ const faqData = [
 
         <div class="jdeal-feature">
             <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="/assets/images/line-geeting.webp" alt="จบดิล ฟังก์ชั่น ประเมินราคา" class="hero-deal" style="margin: 0 auto;">
+                <img
+                    src="/assets/images/line-geeting-500.webp"
+                    srcset="/assets/images/line-geeting-500.webp 500w, /assets/images/line-geeting.webp 879w"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    alt="จบดิล ฟังก์ชั่น ประเมินราคา"
+                    class="hero-deal"
+                    style="margin: 0 auto;"
+                    width="500"
+                    height="429"
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="high"
+                >
             </div>
 
             <div class="features-grid" role="list">
