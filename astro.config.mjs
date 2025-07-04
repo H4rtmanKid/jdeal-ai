@@ -14,7 +14,12 @@ export default defineConfig({
   build: {
     assets: '_astro'
   },
+  devToolbar: false,
   vite: {
+    server: {
+      allowedHosts: ['jdeal.app'],
+      host: true
+    },
     optimizeDeps: {
       include: ['react', 'react-dom']
     }
