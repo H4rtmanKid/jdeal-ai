@@ -1,0 +1,58 @@
+---
+import StatsCounter from '../components/react/StatsCounter.tsx';
+import PriceForm from '../components/react/PriceForm.tsx';
+
+const stats = [
+  { value: '2.3M', label: 'ราคาที่ AI คำนวณ', isActive: true },
+  { value: '524', label: 'คู่ค้าที่ใว้ใจเรา', isActive: false },
+  { value: '40M', label: 'มูลค่าการรับซื้อ', isActive: false }
+];
+---
+
+<!-- Hero Section -->
+<section class="hero hero-bg">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-deal-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <picture>
+                        <source srcset="/assets/images/hero-deal-mobile.webp" media="(max-width: 950px)">
+                        <img src="/assets/images/hero-deal.webp" class="hero-deal" style="margin: 0 auto;" alt="จบดิล">
+                    </picture>
+
+                    <StatsCounter stats={stats} client:load />
+                </div>
+
+                <div class="hero-description">
+                    <h1>AI เช็คราคารถมือสอง<br>เพื่อราคาดีที่สุด ของรถคุณ</h1>
+                    <p>เช็คราคารถยนต์มือสองแม่นยำด้วยระบบ AI และเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศ เสนอราคาตลาดแบบเรียลไทม์ ทุกยี่ห้อ</p>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <div class="icon" role="img" aria-label="เครื่องหมายถูก">✓</div>
+                            <span>ฟรี 100% ไม่มีค่าใช้จ่าย</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon" role="img" aria-label="เครื่องหมายถูก">✓</div>
+                            <span>ราคาแม่นยำด้วย AI</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon" role="img" aria-label="เครื่องหมายถูก">✓</div>
+                            <span>ได้ราคาภายใน 5 นาที</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-hero" id="home">
+                <h1 class="form-title">
+                    <span style="color:#104f66;">เช็คราคารถยนต์</span> ของคุณ!
+                </h1>
+
+                <PriceForm client:load />
+                
+                <img src="/assets/images/car-red.webp" alt="ภาพรถยนต์" class="red-car">
+            </div>
+        </div>
+    </div>
+</section>

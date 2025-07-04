@@ -1,0 +1,86 @@
+---
+import FAQAccordion from '../components/react/FAQAccordion.tsx';
+
+const faqData = [
+  {
+    question: "จบดีล ประเมินราคารถอย่างไร และความแม่นยำเป็นอย่างไร?",
+    answer: "เรานำเทคโนโลยี AI มาวิเคราะห์ข้อมูลราคาตลาดแบบเรียลไทม์ จากหลากหลายแหล่งข้อมูล ได้แก่ ราคาขายจริงบนแพลทฟอร์มออนไลน์ชั้นนำ ราคารับจัดไฟแนนซ์จากสถาบันการเงิน ราคาประเมินจากเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศ และข้อมูลการซื้อขายจากลานประมูลรถยนต์ รวมถึงการวิเคราะห์สภาพรถ ประวัติการใช้งาน และปัจจัยที่ส่งผลกระทบต่อราคา เพื่อให้ได้ราคาประเมินที่แม่นยำและสะท้อนราคาตลาดจริง"
+  },
+  {
+    question: "มีค่าใช้บริการหรือไม่?",
+    answer: "การประเมินราคาผ่านแอป จบดีล ไม่มีค่าใช้จ่าย และหากเกิดกระบวนการซื้อขายผ่านแพลทฟอร์มของเรา เราไม่เก็บค่าบริการใดๆ จากผู้ขาย เพียงทำตามขั้นตอนที่แนะนำ"
+  },
+  {
+    question: "ระยะเวลาในการขายรถใช้เวลานานเท่าไร?",
+    answer: "โดยเฉลี่ยใช้เวลา 7-14 วันทำการ ระยะเวลาขึ้นอยู่กับปัจจัยต่างๆ เช่น ยี่ห้อ รุ่น สภาพรถ และราคาตั้งขาย ด้วยเครือข่ายพันธมิตรที่กว้างครอบคลุมทั่วประเทศ ช่วยเพิ่มโอกาสในการหาผู้ซื้อได้อย่างรวดเร็ว"
+  },
+  {
+    question: "จบดีล รับซื้อรถโดยตรงหรือไม่?",
+    answer: "เราไม่ได้เป็นผู้รับซื้อโดยตรง แต่ทำหน้าที่เป็นแพลทฟอร์มกลางที่ให้ข้อมูลราคาที่แม่นยำตามสภาพตลาดจริง เพื่อช่วยในการตัดสินใจซื้อขายของลูกค้า และทำหน้าที่สรรหาผู้ซื้อที่เหมาะสม โดยยึดหลักความพึงพอใจของทั้งผู้ขายและผู้ซื้อเป็นสำคัญ"
+  },
+  {
+    question: "มีบริการเสริมอื่นๆ อะไรบ้าง?",
+    answer: "นอกเหนือจากการประเมินราคาและการขายรถแล้ว เรายังมีบริการครบวงจร ได้แก่ การจัดหาสินเชื่อรถยนต์สำหรับผู้ซื้อ การให้คำปรึกษาเกี่ยวกับเทรนด์ราคาตลาด การวิเคราะห์ข้อมูلเชิงลึกของตลาดรถยนต์มือสอง เพื่อให้ลูกค้าได้รับข้อมูลที่ครบถ้วนและทันสมัยในการตัดสินใจ"
+  }
+];
+---
+
+<!-- Features Section -->
+<section class="features" id="about" role="region" aria-labelledby="features-title">
+    <div class="container">
+        <h2 id="features-title" class="section-title">ทำไมต้องเลือกจบดิล เช็คราคารถมือสอง?</h2>
+
+        <div class="jdeal-feature">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <img src="/assets/images/line-geeting.webp" alt="จบดิล ฟังก์ชั่น ประเมินราคา" class="hero-deal" style="margin: 0 auto;">
+            </div>
+
+            <div class="features-grid" role="list">
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon" role="img" aria-label="ไอคอนความแม่นยำ">
+                        <img src="/assets/images/target.svg" alt="ไอคอนการแม่นยำ" class="feature-icon-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>ราคาแม่นยำที่สุดด้วย AI</h3>
+                        <p>ใช้ระบบ AI อัจฉริยะวิเคราะห์ข้อมูลราคาตลาดรถมือสองแบบเรียลไทม์ จากเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศไทย รับประกันความแม่นยำ 99% สำหรับทุกยี่ห้อ Toyota Honda Nissan Mazda BMW Mercedes</p>
+                    </div>
+                </article>
+                
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon" role="img" aria-label="ไอคอนความเร็ว">
+                        <img src="/assets/images/speed.svg" alt="ไอคอนความเร็ว" class="feature-icon-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>รวดเร็วทันใจ 5 นาที</h3>
+                        <p>ได้ราคาประเมินรถยนต์มือสองภายใน 5 นาที ไม่ต้องรอนาน ไม่ต้องเดินทางไปศูนย์ ประหยัดเวลาและค่าใช้จ่าย เช็คราคารถได้ทุกที่ทุกเวลา 24 ชั่วโมง</p>
+                    </div>
+                </article>
+                
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon" role="img" aria-label="ไอคอนเงิน">
+                        <img src="/assets/images/customer-service.svg" alt="ไอคอนบริการครบวงจรรถยนต์" class="feature-icon-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>บริการครบวงจรรถยนต์</h3>
+                        <p>ไม่เพียงแค่ประเมินราคารถมือสอง เรายังช่วยขายรถ แลกเปลี่ยนรถ จัดไฟแนนซ์รถยนต์ ประกันภัย และให้คำปรึกษาฟรีตลอดกระบวนการ</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+        <h4 id="faq-title" class="section-title">คำถามที่พบบ่อย (FAQ)</h4>
+        <FAQAccordion faqs={faqData} client:load />
+    </div>
+</section>
+
+<style>
+    .feature-icon-img {
+        width: 40px;
+        height: 40px;
+    }
+</style>

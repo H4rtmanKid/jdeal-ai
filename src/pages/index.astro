@@ -1,11 +1,68 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Steps from '../components/Steps.astro';
+import Features from '../components/Features.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "เช็คราคารถยนต์มือสอง ราคาราคาแม่นยำสุดๆ | เช็คราคารถฟรีด้วย AI";
+const description = "เช็คราคารถยนต์มือสองแม่นยำที่สุด ด้วยระบบ AI และเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศ ได้ราคาภายใน 5 นาที ฟรี ไม่มีค่าใช้จ่าย รับประกันความแม่นยำ 99% พร้อมบริการขายรถ แลกเปลี่ยน และจัดไฟแนนซ์";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+    <Header />
+    
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <Hero />
+        <Steps />
+        <Features />
+        <CTA />
+    </main>
+    
+    <Footer />
 </Layout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "การเช็คราคารถยนต์มือสองของจบดิลแม่นยำแค่ไหน?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "จบดิลใช้ระบบ AI วิเคราะห์ข้อมูลตลาดแบบเรียลไทม์ จากเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศ ความแม่นยำสูง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ใช้เวลานานแค่ไหนในการได้ราคาประเมิน?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "คุณจะได้รับราคาประเมินรถยนต์ภายใน 5 นาที หลังจากกรอกข้อมูลรถของคุณเสร็จสิ้น"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "บริการเช็คราคารถมือสองมีค่าใช้จ่ายหรือไม่?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "บริการเช็คราคารถยนต์มือสองของจบดิลฟรี 100% ไม่มีค่าใช้จ่ายใดๆ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "จบดิลให้บริการอะไรบ้างนอกจากเช็คราคารถ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "นอกจากเช็คราคารถแล้ว จบดิลยังให้บริการขายรถมือสอง แลกเปลี่ยนรถ จัดไฟแนนซ์ และคำปรึกษาฟรีตลอดกระบวนการ"
+      }
+    }
+  ]
+}
+</script>

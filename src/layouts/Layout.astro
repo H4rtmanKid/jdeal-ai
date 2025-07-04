@@ -1,22 +1,122 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { 
+  title, 
+  description, 
+  keywords = "เช็คราคารถมือสอง, เช็คราคารถ, ราคารถยนต์มือสอง, ขายรถมือสอง, แลกเปลี่ยนรถ, ประเมินราคารถ, ราคารถ AI, จัดไฟแนนซ์รถ", 
+  ogImage = "/images/jobdeal-og-image.jpg",
+  canonical = Astro.url.href,
+  noindex = false
+} = Astro.props;
+
+const fullTitle = title ? `${title} | จบดิล` : "จบดิล - เช็คราคารถยนต์มือสอง รับประกันราคาดีที่สุด | เช็คราคารถฟรี AI";
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}>
+    <meta name="language" content="Thai">
+    <meta name="geo.region" content="TH">
+    <meta name="geo.placename" content="Thailand">
+    <meta name="author" content="จบดิล">
+    <meta name="publisher" content="จบดิล">
+    <meta name="copyright" content="© 2025 จบดิล">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical}>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonical}>
+    <meta property="og:title" content={fullTitle}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="จบดิล">
+    <meta property="og:locale" content="th_TH">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonical}>
+    <meta property="twitter:title" content={fullTitle}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site).href}>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "จบดิล",
+      "alternateName": "JobDeal",
+      "description": "เช็คราคารถยนต์มือสองแม่นยำที่สุด ด้วยระบบ AI และเครือข่ายพันธมิตรกว่า 500 เจ้าทั่วประเทศ",
+      "url": "https://jdeal.app",
+      "telephone": "+66-2-111-1111",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TH",
+        "addressRegion": "Thailand"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "13.7563",
+        "longitude": "100.5018"
+      },
+      "openingHours": "Mo-Su 00:00-23:59",
+      "priceRange": "ฟรี",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Thailand"
+      },
+      "serviceType": "เช็คราคารถยนต์มือสอง"
+    }
+    </script>
+    
+    <!-- Performance Optimization -->
+    <meta name="theme-color" content="#228b22">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-TileColor" content="#228b22">
+</head>
+
+<body>
+    <slot />
+</body>
+</html>

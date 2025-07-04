@@ -1,0 +1,145 @@
+---
+// Header.astro
+---
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
+<!-- Header -->
+<header class="header" role="banner">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo" role="img" aria-label="โลโก้จบดิล">
+                <img src="/assets/images/deal-logo-main.png" alt="โลโก้จบดิล" class="main-logo">
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav" role="navigation" aria-label="เมนูหลัก">
+                <a href="/">หน้าแรก</a>
+                <a href="#services">บริการ</a>
+                <a href="#about">เกี่ยวกับเรา</a>
+                <a href="/blog">บทความ</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="เปิดเมนูมือถือ" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+
+<!-- Mobile Navigation Sidebar -->
+<nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="เมนูมือถือ">
+    <div class="mobile-nav-header">
+        <div class="mobile-nav-logo" role="img" aria-label="โลโก้จบดิล">
+            <img src="/assets/images/deal-outline-logo.png" alt="โลโก้จบดิล" class="main-outline-logo">
+        </div>
+        <button class="mobile-nav-close" aria-label="ปิดเมนูมือถือ">✕</button>
+    </div>
+    <a href="#home">หน้าแรก</a>
+    <a href="#services">บริการ</a>
+    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="/blog">บทความ</a>
+</nav>
+
+<script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileOverlay = document.querySelector('.mobile-overlay');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+    function openMobileMenu() {
+        if (mobileMenuToggle && mobileNav && mobileOverlay) {
+            mobileMenuToggle.classList.add('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+            mobileNav.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeMobileMenu() {
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+        if (mobileNav) {
+            mobileNav.classList.remove('active');
+        }
+        if (mobileOverlay) {
+            mobileOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+    }
+
+    // Toggle mobile menu with hamburger button
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (mobileNav && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+    }
+
+    // Close button in mobile nav
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+    }
+
+    // Close mobile menu when clicking on overlay
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMobileMenu();
+        });
+    }
+
+    // Close mobile menu when clicking on a link
+    if (mobileNav) {
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+    }
+
+    // Close mobile menu when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+            const targetElement = href ? document.querySelector(href) : null;
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>
