@@ -14,7 +14,9 @@ export default defineConfig({
   build: {
     assets: '_astro'
   },
-  devToolbar: false,
+  // devToolbar: {
+  //   enabled: true,
+  // },
   vite: {
     server: {
       allowedHosts: ['jdeal.app'],
